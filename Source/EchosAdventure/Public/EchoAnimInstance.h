@@ -16,12 +16,15 @@ class ECHOSADVENTURE_API UEchoAnimInstance : public UAnimInstance
 
 public:
 	virtual void NativeInitializeAnimation() override;
-	virtual void NativeUpdateAnimation() override;
+	virtual void NativeUpdateAnimation(float DeltaTime) override;
 
 	UPROPERTY(BlueprintReadOnly)
 	class AEcho *EchoCharacter;
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
 	class UCharacterMovementComponent *EchoCharacterMovement;
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	float GroundSpeed
+	float GroundSpeed;
+
+	UPROPERTY(BlueprintReadOnly, Category = Movement)
+	bool IsFalling;
 };

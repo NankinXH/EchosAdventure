@@ -3,6 +3,7 @@
 #include "Echo.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "GroomComponent.h"
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
@@ -69,6 +70,7 @@ void AEcho::Look(const FInputActionValue &Value)
 	AddControllerYawInput(LookVector.X);
 }
 
+
 // Called every frame
 void AEcho::Tick(float DeltaTime)
 {
@@ -84,5 +86,6 @@ void AEcho::SetupPlayerInputComponent(UInputComponent *PlayerInputComponent)
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AEcho::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AEcho::Look);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
 	}
 }

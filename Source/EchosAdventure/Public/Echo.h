@@ -12,7 +12,9 @@ class UInputMappingContext;
 class UInputAction;
 class USpringArmComponent;
 class UCameraComponent;
+class UGroomComponent;
 class UCharacterMovementComponent;
+
 UCLASS()
 class ECHOSADVENTURE_API AEcho : public ACharacter
 {
@@ -33,13 +35,19 @@ protected:
 	UInputAction *MoveAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	UInputAction *LookAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	UInputAction *JumpAction;
 
-	void Move(const FInputActionValue& Value);
-	void Look(const FInputActionValue& Value);
+	void Move(const FInputActionValue &Value);
+	void Look(const FInputActionValue &Value);
 
 private:
 	UPROPERTY(VisibleAnywhere)
-	USpringArmComponent* EchoCameraBoom;
+	USpringArmComponent *EchoCameraBoom;
 	UPROPERTY(VisibleAnywhere)
-	UCameraComponent* EchoCamera;
+	UCameraComponent *EchoCamera;
+	UPROPERTY(VisibleAnywhere, Category = Hair)
+	UGroomComponent *Hair;
+	UPROPERTY(VisibleAnywhere, Category = Hair)
+	UGroomComponent *Eyebrows;
 };
