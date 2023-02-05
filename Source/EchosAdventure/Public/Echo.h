@@ -10,6 +10,7 @@
 
 class UInputMappingContext;
 class UInputAction;
+class USkeletalMeshComponent;
 class USpringArmComponent;
 class UCameraComponent;
 class UGroomComponent;
@@ -50,4 +51,6 @@ private:
 	UGroomComponent *Hair;
 	UPROPERTY(VisibleAnywhere, Category = Hair)
 	UGroomComponent *Eyebrows;
+	UPROPERTY(VisibleAnywhere)
+	USkeletalMeshComponent *HairMesh;
 };

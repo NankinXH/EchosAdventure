@@ -28,6 +28,18 @@ AEcho::AEcho()
 
 	EchoCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("EchoCamera"));
 	EchoCamera->SetupAttachment(EchoCameraBoom);
+	
+	Hair = CreateDefaultSubobject<UGroomComponent>(TEXT("Hair"));
+	Hair->SetupAttachment(GetMesh());
+	Hair->AttachmentName = FString("head");
+
+	Eyebrows = CreateDefaultSubobject<UGroomComponent>(TEXT("Eyebrows"));
+	Eyebrows->SetupAttachment(GetMesh());
+	Eyebrows->AttachmentName = FString("head");
+
+	HairMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("HairMesh"));
+	HairMesh->SetupAttachment(GetMesh(), TEXT("headSocket"));
+	
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
